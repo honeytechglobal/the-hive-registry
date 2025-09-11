@@ -4,7 +4,7 @@ org: "Honeytech Solutions"
 contact: "noc@honeytech.net"
 
 service: "ntp"
-hostname: "time.honeytech.byteworld"
+hostname: "time.honeytech.hive"
 ipv4: "172.31.20.123"
 ipv6: "fd00:3120::123"
 
