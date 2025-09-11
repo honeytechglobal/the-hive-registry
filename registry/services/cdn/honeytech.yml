@@ -1,0 +1,12 @@
+# CDN service provided by ExampleNet
+asn: "65000"
+org: "Honeytech Solutions"
+contact: "admin@honeytech.net"
+
+service: "cdn"
+hostname: "cdn.honeytech.hive"
+ipv4: "172.31.20.80"
+ipv6: "fd00:3101::80"
+
+status: active
+notes: "Static content delivery node"
