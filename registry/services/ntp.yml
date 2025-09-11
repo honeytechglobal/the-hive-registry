@@ -1,0 +1,46 @@
+# Byte World NTP Service Registry
+# List of NTP servers available in the Byte World network.
+# Supports: stratum1, stratum2, and anycast nodes.
+
+services:
+  - name: "ExampleNet NTP"
+    operator: "ExampleNet (ASN 65010)"
+    contact: "ntp-admin@example.net"
+
+    type: "stratum1"          # stratum1 | stratum2 | anycast
+    location: "Nairobi, Kenya"
+    ipv4: "172.24.10.123"
+    ipv6: "fd00:10::123"
+
+    upstream: "GPS Receiver"  # GPS, DCF77, PTP, or "stratum1 peer"
+    notes: |
+      Primary stratum1 NTP server connected to GPS.
+      Open to all Byte World participants.
+
+  - name: "ResearchLab NTP"
+    operator: "ResearchLab (ASN 65020)"
+    contact: "lab-netops@researchlab.org"
+
+    type: "stratum2"
+    location: "Frankfurt, Germany"
+    ipv4: "172.24.20.123"
+    ipv6: "fd00:20::123"
+
+    upstream: "ExampleNet Stratum1 (172.24.10.123)"
+    notes: |
+      Stratum2 server synchronized with ExampleNet GPS clock.
+      Redundant peers planned in Europe.
+
+  - name: "Anycast NTP Node 1"
+    operator: "Honeytech Solutions (ASN 65000)"
+    contact: "noc@honeytech.net"
+
+    type: "anycast"
+    location: "New York, USA"
+    ipv4: "172.24.100.123"
+    ipv6: "fd00:100::123"
+
+    upstream: "Stratum1 peers in Byte World"
+    notes: |
+      Anycast NTP node forming part of the Byte World global time service.
+      BGP announcements coordinated by Honeytech Solutions.
