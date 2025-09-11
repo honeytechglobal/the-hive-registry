@@ -1,0 +1,24 @@
+asn: "65010"
+org: "ExampleNet"
+contact: "admin@example.net"
+location: "Nairobi, Kenya"
+ipv4: "172.24.10.0/24"
+ipv6: "fd00:10::/48"
+vpn:
+  type: "WireGuard"
+  endpoint: "example.net:51820"
+  pubkey: "base64key=="
+  tunnel_ipv4: "10.10.10.1/30"
+  tunnel_ipv6: "fd00:10::1/64"
+bgp:
+  router_id: "198.18.10.1"
+  neighbors:
+    - asn: "65020"
+      ipv4: "172.24.20.1"
+      ipv6: "fd00:20::1"
+services:
+  dns: true
+  ntp: false
+  web: false
+notes: |
+  Running an experimental Anycast DNS service.
