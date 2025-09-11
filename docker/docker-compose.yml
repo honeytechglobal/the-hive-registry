@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  registry-api:
+    build: ./docker
+    container_name: byteworld-registry
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./registry:/app/registry:ro
+      - ./services:/app/services:ro
+
+  prometheus:
+    image: prom/prometheus
+    container_name: byteworld-prometheus
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
