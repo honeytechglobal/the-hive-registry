@@ -1,0 +1,40 @@
+# Byte World Registry Entry Template
+# Fill out and submit as part of your ASN/IP request issue or PR.
+
+# --- Required Information ---
+asn: "650xx"                # Your requested ASN (65000–65500 range)
+org: "Your Organization"    # Your org name, project, or personal name
+contact: "you@example.com"  # Email or preferred contact
+location: "City, Country"   # Where your node is located
+
+# --- Address Space Allocation ---
+ipv4: "172.24.x.0/24"       # Requested /24 subnet from 172.24.0.0/13
+ipv6: "fd00:xxxx::/32"      # Requested /32 subnet from fd00::/8
+
+# --- VPN Peering Details ---
+vpn:
+  type: "WireGuard"         # WireGuard | OpenVPN | GRE | IPsec
+  endpoint: "peer.example.com:13231"  # Public endpoint (hostname:port)
+  pubkey: "<your-wireguard-public-key>" # If WireGuard
+  tunnel_ipv4: "10.x.x.1/30" # Point-to-point IPv4 for tunnel
+  tunnel_ipv6: "fd00:peer::1/64" # Point-to-point IPv6 for tunnel
+
+# --- BGP Configuration ---
+bgp:
+  router_id: "172.24.x.1"   # Router ID (IPv4 address recommended)
+  neighbors:
+    - asn: "650yy"
+      ipv4: "172.24.y.1"
+      ipv6: "fd00:yyyy::1"
+      desc: "Peering with neighbor-name"
+
+# --- Optional Services ---
+services:
+  dns: false                # true if running DNS service
+  ntp: false                # true if running NTP service
+  web: false                # true if running web/CDN service
+  other: []                 # list other services
+
+# --- Notes ---
+notes: |
+  Add any extra information (example: "I plan to run Anycast DNS later")
