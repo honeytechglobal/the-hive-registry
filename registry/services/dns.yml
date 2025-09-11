@@ -1,0 +1,48 @@
+# Byte World DNS Service Registry
+# List of DNS servers provided by participants.
+# Supports: authoritative, recursive, anycast.
+
+services:
+  - name: "ExampleNet DNS"
+    operator: "ExampleNet (ASN 65010)"
+    contact: "dns-admin@example.net"
+
+    type: "authoritative"     # authoritative | recursive | anycast
+    location: "Nairobi, Kenya"
+    ipv4: "172.24.10.53"
+    ipv6: "fd00:10::53"
+
+    domains:
+      - "byteworld.arpa"      # if authoritative
+      - "10.in-addr.arpa"
+      - "ip6.arpa"
+
+    notes: |
+      Primary authoritative DNS for byteworld.arpa.
+      Peered via WireGuard with multiple nodes.
+
+  - name: "ResearchLab Recursive"
+    operator: "ResearchLab (ASN 65020)"
+    contact: "lab-netops@researchlab.org"
+
+    type: "recursive"
+    location: "Frankfurt, Germany"
+    ipv4: "172.24.20.53"
+    ipv6: "fd00:20::53"
+
+    notes: |
+      Open recursive resolver available to all Byte World participants.
+      Rate-limited to prevent abuse.
+
+  - name: "Anycast DNS Node 1"
+    operator: "Honeytech Solutions (ASN 65000)"
+    contact: "noc@honeytech.net"
+
+    type: "anycast"
+    location: "New York, USA"
+    ipv4: "172.24.100.53"
+    ipv6: "fd00:100::53"
+
+    notes: |
+      Anycast node as part of the Byte World global DNS service.
+      BGP announcements coordinated via Honeytech Solutions.
