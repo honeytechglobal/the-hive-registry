@@ -1,0 +1,9 @@
+# Reserved IPv6 space for IXPs and Anycast infra
+asn: "0"
+org: "The Hive Reserved Block"
+contact: "noc@honeytech.net"
+
+ipv6: "fd31::/16"
+
+status: reserved
+notes: "IXP services and anycast allocations"
