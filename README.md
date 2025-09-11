@@ -1,144 +1,119 @@
-# Byte World 🌐
+# 🐝 The Hive Network  
 
-*A decentralized practice network inspired by DN42 — by Honeytech Solutions Inc.*
+The Hive is a community-driven, private network (similar to DN42) created by **Honeytech Solutions**.  
+It’s designed for learning, experimentation, and collaboration in **networking, routing, and distributed infrastructure**.  
 
----
-
-## Overview
-
-**Byte World** is a private, experimental network designed to simulate real-world Internet operations.
-It provides an environment for developers, network engineers, and students to practice:
-
-* BGP routing and AS interconnections
-* IPv4/IPv6 address planning
-* Anycast deployments
-* Running DNS, mail, and web services in a distributed environment
-* VPN-based overlay networking
-
-Byte World is **not connected to the public Internet** and is intended for **educational and research purposes only**.
+**Tagline:** “Simple, Innovative, Secure.”
 
 ---
 
-## Architecture
+## ✨ Features  
 
-* **Transport:** VPN-based (WireGuard, OpenVPN, GRE, or IPsec)
-* **Routing:** BGP sessions between Autonomous Systems
-* **Addressing:**
-
-  * IPv4: `172.24.0.0/13`
-  * IPv6: `fd00::/8` (allocated as `/32` per participant)
-* **Registry:** Centralized database for ASN and IP allocations
-* **Governance:** Community-driven with minimal rules
+- 🔗 Private IPv4 and IPv6 network space  
+- 🖧 BGP-based peering between members  
+- 📡 Community services (DNS, NTP, CDN, VPN gateways, IXPs)  
+- 🔐 Safe environment to learn routing, network automation, and infra ops  
+- 🛠 Registry-based IP + ASN allocations with CI validation  
 
 ---
 
-## Getting Started
+## 🔗 Peering  
 
-### 1. Prerequisites
+- **Routing protocol:** BGP  
 
-* A Linux server (VPS, bare-metal, or home lab)
-* Installed VPN software (recommended: WireGuard)
-* `bird`, `frr`, or `bgpd` for BGP routing
-* Basic networking knowledge
+- **IPv4 address space:** `172.24.0.0/13`  
+  - 🔒 Reserved: `172.31.0.0/16` (internal infra + backbone services)  
 
-### 2. Request Resources
+- **IPv6 address space:** `fd32::/8` (each member gets a `/32`)  
+  - 🔒 Reserved:  
+    - `fd00:3120::/32` (The Hive backbone services)  
+    - `fd31::/16` (IXP & Anycast infra)  
+    - `fd32::/16` (future expansion, internal infra)  
 
-Open an issue in the **[Byte World Registry](registry)** repository with:
+- **ASN range:** `64512 – 65534`  
 
-```yaml
-asn: "650xx"
-ipv4: "172.24.x.0/24"
-ipv6: "fd00:xxxx::/32"
-peering: "WireGuard / OpenVPN"
-contact: "you@example.com"
+📜 Full reserved block list → [RESERVED.md](RESERVED.md)
+
+---
+
+## 📂 Registry Structure  
+
 ```
 
-You will be assigned:
+registry/
+├── asn/          # Member ASN records (asn.yml files)
+├── ipv4/         # Member IPv4 allocations
+├── ipv6/         # Member IPv6 allocations
+├── services/     # Declared services (DNS, NTP, CDN, etc.)
+└── \_reserved/    # Reserved blocks (IPv4 + IPv6)
 
-* An ASN
-* IPv4/IPv6 prefixes
-* Peering instructions
+````
 
-### 3. Configure VPN
+---
 
-Example WireGuard config:
+## 🛠 Validator  
 
-```ini
-[Interface]
-PrivateKey = <your_private_key>
-Address = 172.24.x.1/24, fd00:xxxx::1/32
+The Hive includes a **validator script** that checks:  
+- Allocation overlaps  
+- Required fields (`asn`, `org`, `contact`)  
+- Reserved block enforcement  
 
-[Peer]
-PublicKey = <peer_public_key>
-Endpoint = peer.example.com:51820
-AllowedIPs = 172.24.y.0/24, fd00:yyyy::/32
+Run it locally:  
+
+```bash
+pip install pyyaml
+python3 tools/validator/validator.py
+````
+
+Validator also runs automatically in **GitHub Actions** CI on every commit.
+
+---
+
+## 🚀 How to Join
+
+1. Fork the registry repo
+2. Create your allocation request (`asn.yml`, `ipv4.yml`, `ipv6.yml`)
+3. Submit a Pull Request
+4. Wait for CI validation + maintainer approval
+5. Configure BGP peering with The Hive
+
+---
+
+## 📡 Community Services
+
+Members may run and declare services such as:
+
+* Authoritative DNS
+* Recursive DNS resolvers
+* NTP servers
+* Web mirrors
+* VPN / transit gateways
+* CDNs & IXPs
+
+Service declarations live in:
+
+```
+registry/services/
 ```
 
-### 4. Configure BGP
+---
 
-Example BIRD config:
+## 🤝 Governance
 
-```conf
-protocol bgp {
-    local as 650xx;
-    neighbor 172.24.y.1 as 650yy;
-    ipv4 {
-        import all;
-        export all;
-    };
-    ipv6 {
-        import all;
-        export all;
-    };
-}
-```
+* Managed by **Honeytech Solutions**
+* Open to networking enthusiasts, students, and operators
+* Changes managed via pull requests + CI validation
+* Reserved resources are documented in [RESERVED.md](RESERVED.md)
 
 ---
 
-## Contribution
+## 📧 Contact
 
-We welcome contributions in the following areas:
-
-* Improving documentation
-* Building monitoring tools
-* Creating automation for registry management
-* Running shared services (DNS, NTP, CDN, etc.)
-
-To contribute:
-
-1. Fork the repo
-2. Create a feature branch (`git checkout -b feature/my-feature`)
-3. Commit changes (`git commit -m "Added feature X"`)
-4. Push branch (`git push origin feature/my-feature`)
-5. Open a Pull Request
+* NOC: **[noc@honeytech.net](mailto:noc@honeytech.net)**
+* Maintainers: Honeytech Solutions Team
 
 ---
 
-## Rules & Code of Conduct
-
-* No abuse (DDoS, scanning, malware)
-* Respect other participants’ allocations
-* Keep configs and services stable where possible
-* Byte World is **for learning — not production traffic**
-
----
-
-## Roadmap 🗺️
-
-* [ ] Automated ASN/IP registry with API
-* [ ] Web-based portal for peering requests
-* [ ] Anycast DNS and CDN service deployment
-* [ ] Monitoring stack (Prometheus + Grafana)
-* [ ] Documentation site
-
----
-
-## License
-
-MIT License © 2025 Honeytech Solutions Inc.
-
----
-
-🚀 **Byte World — your Internet lab without the risks.**
+🐝 **The Hive** – Learn, build, and collaborate in a safe networking sandbox.
 
 ---
