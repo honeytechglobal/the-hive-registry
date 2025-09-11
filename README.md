@@ -25,8 +25,8 @@ Byte World is **not connected to the public Internet** and is intended for **edu
 * **Routing:** BGP sessions between Autonomous Systems
 * **Addressing:**
 
-  * IPv4: `172.24.0.0/14`
-  * IPv6: `fd00::/8` (allocated as `/48` per participant)
+  * IPv4: `172.24.0.0/13`
+  * IPv6: `fd00::/8` (allocated as `/32` per participant)
 * **Registry:** Centralized database for ASN and IP allocations
 * **Governance:** Community-driven with minimal rules
 
@@ -48,7 +48,7 @@ Open an issue in the **[Byte World Registry](#)** repository with:
 ```yaml
 asn: "650xx"
 ipv4: "172.24.x.0/24"
-ipv6: "fd00:xxxx::/48"
+ipv6: "fd00:xxxx::/32"
 peering: "WireGuard / OpenVPN"
 contact: "you@example.com"
 ```
@@ -66,12 +66,12 @@ Example WireGuard config:
 ```ini
 [Interface]
 PrivateKey = <your_private_key>
-Address = 172.24.x.1/24, fd00:xxxx::1/48
+Address = 172.24.x.1/24, fd00:xxxx::1/32
 
 [Peer]
 PublicKey = <peer_public_key>
 Endpoint = peer.example.com:51820
-AllowedIPs = 172.24.y.0/24, fd00:yyyy::/48
+AllowedIPs = 172.24.y.0/24, fd00:yyyy::/32
 ```
 
 ### 4. Configure BGP
