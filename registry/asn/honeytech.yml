@@ -1,8 +1,8 @@
-asn: "64531"
+asn: "65000"
 org: "Honeytech Solutions"
 contact: "admin@honeytech.net"
 location: "Nairobi, Kenya"
-ipv4: "172.31.20.0/24"
+ipv4: "172.31.20.0/22"
 ipv6: "fd00:3120::/32"
 vpn:
   type: "WireGuard"
