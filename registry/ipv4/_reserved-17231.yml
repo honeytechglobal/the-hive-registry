@@ -1,0 +1,9 @@
+# Reserved IPv4 space for The Hive
+asn: "0"
+org: "The Hive Reserved Block"
+contact: "noc@honeytech.net"
+
+ipv4: "172.31.0.0/16"
+
+status: reserved
+notes: "Reserved for The Hive infrastructure, IXPs, and backbone services"
