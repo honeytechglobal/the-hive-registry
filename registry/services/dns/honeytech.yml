@@ -1,0 +1,12 @@
+# DNS service provided by Honeytech Solutions
+asn: "65000"
+org: "Honeytech Solutions"
+contact: "noc@honeytech.net"
+
+service: "dns"
+hostname: "ns1.honeytech.byteworld"
+ipv4: "172.31.20.53"
+ipv6: "fd00:3120::53"
+
+status: active
+notes: "Anycast recursive DNS service"
