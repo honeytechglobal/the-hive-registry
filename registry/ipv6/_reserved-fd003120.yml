@@ -1,0 +1,9 @@
+# Reserved IPv6 space for The Hive backbone services
+asn: "65000"
+org: "The Hive Reserved Block"
+contact: "noc@honeytech.net"
+
+ipv6: "fd00:3120::/32"
+
+status: reserved
+notes: "Backbone services and special infra"
