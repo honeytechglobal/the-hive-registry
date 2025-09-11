@@ -1,0 +1,12 @@
+# IPv6 allocation record for ExampleNet
+asn: "65010"
+org: "BMTech"
+contact: "admin@bmtech.net"
+
+# Allocated IPv6 prefix
+ipv6: "fd00:10::/32"
+
+# Optional metadata
+status: active
+location: "Nairobi, Kenya"
+notes: "ExampleNet primary IPv6 allocation"
