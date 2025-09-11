@@ -1,0 +1,55 @@
+# Byte World CDN Service Registry
+# List of CDN / web caching nodes in the Byte World network.
+# Supports: anycast, regional, and experimental CDN services.
+
+services:
+  - name: "ExampleNet CDN Node 1"
+    operator: "ExampleNet (ASN 65010)"
+    contact: "cdn-admin@example.net"
+
+    type: "regional"           # regional | anycast | experimental
+    location: "Nairobi, Kenya"
+    ipv4: "172.24.10.80"
+    ipv6: "fd00:10::80"
+
+    content: 
+      - "mirror.byteworld"     # Domain or service mirrored
+      - "cdn.example.net"
+
+    notes: |
+      Regional CDN node serving Byte World mirrors and static content.
+      Acts as an HTTP reverse proxy with caching.
+
+  - name: "ResearchLab Anycast CDN EU"
+    operator: "ResearchLab (ASN 65020)"
+    contact: "lab-netops@researchlab.org"
+
+    type: "anycast"
+    location: "Frankfurt, Germany"
+    ipv4: "172.24.200.80"
+    ipv6: "fd00:200::80"
+
+    content: 
+      - "cdn.byteworld"        # Global Anycast CDN for shared services
+
+    notes: |
+      Anycast CDN node in Europe.
+      Peers with Honeytech core and other Byte World ASNs.
+      Runs NGINX with cache tier for web objects.
+
+  - name: "Honeytech CDN Core Node"
+    operator: "Honeytech Solutions (ASN 65000)"
+    contact: "noc@honeytech.net"
+
+    type: "anycast"
+    location: "New York, USA"
+    ipv4: "172.24.100.80"
+    ipv6: "fd00:100::80"
+
+    content: 
+      - "cdn.byteworld"
+      - "anycast.byteworld"
+
+    notes: |
+      Core Anycast CDN node managed by Honeytech Solutions.
+      Used for experimental web acceleration and content delivery.
