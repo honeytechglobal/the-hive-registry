@@ -1,0 +1,12 @@
+asn: "65010"
+org: "ArrowverseNet"
+contact: "admin@arrowverse.net"
+ipv4: "172.24.10.0/24"
+ipv6: "fd00:10::/32"
+vpn:
+  type: "WireGuard"
+  endpoint: "arrowverse.net:13231"
+services:
+  dns: true
+  ntp: false
+  web: true
