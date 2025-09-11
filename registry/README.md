@@ -22,7 +22,7 @@ registry/
 │   ├── 172.24.1.0-24.yml
 │   └── ...
 ├── ipv6/          # IPv6 prefix allocations
-│   ├── fd00-1234--48.yml
+│   ├── fd00-1234--32.yml
 │   └── ...
 ├── services/      # Optional services (DNS, NTP, CDN, etc.)
 │   ├── dns.yml
@@ -42,7 +42,7 @@ registry/
 
    * `asn/650xx.yml` → your ASN record
    * `ipv4/172.24.x.0-24.yml` → your IPv4 prefix
-   * `ipv6/fd00-xxxx--48.yml` → your IPv6 prefix
+   * `ipv6/fd00-xxxx--32.yml` → your IPv6 prefix
    * `services/<service>.yml` → if you are running a shared service
 5. Commit and submit a **Pull Request (PR)**
 
@@ -60,7 +60,7 @@ org: "ExampleNet"
 contact: "admin@example.net"
 location: "Nairobi, Kenya"
 ipv4: "172.24.10.0/24"
-ipv6: "fd00:10::/48"
+ipv6: "fd00:10::/32"
 vpn:
   type: "WireGuard"
   endpoint: "example.net:51820"
