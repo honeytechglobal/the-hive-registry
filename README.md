@@ -43,7 +43,7 @@ Byte World is **not connected to the public Internet** and is intended for **edu
 
 ### 2. Request Resources
 
-Open an issue in the **[Byte World Registry](#)** repository with:
+Open an issue in the **[Byte World Registry](registry)** repository with:
 
 ```yaml
 asn: "650xx"
