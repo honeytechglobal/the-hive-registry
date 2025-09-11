@@ -1,0 +1,12 @@
+name: Validate Registry
+on: [pull_request, push]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: pip install pyyaml jsonschema netaddr
+      - name: Run validation script
+        run: python scripts/validate_registry.py
