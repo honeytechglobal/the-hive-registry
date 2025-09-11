@@ -1,0 +1,10 @@
+# IPv6 allocation record for Honeytech Solutions
+asn: "65000"
+org: "Honeytech Solutions"
+contact: "noc@honeytech.net"
+
+ipv6: "fd00:3120::/32"
+
+status: active
+location: "Nairobi, Kenya"
+notes: "Honeytech IPv6 core allocation"
