@@ -1,0 +1,9 @@
+# Reserved IPv6 space for future expansion and infra
+asn: "0"
+org: "The Hive Reserved Block"
+contact: "noc@honeytech.net"
+
+ipv6: "fd32::/16"
+
+status: reserved
+notes: "Future expansion and internal infra"
