@@ -1,0 +1,12 @@
+# NTP service provided by Honeytech Solutions
+asn: "65000"
+org: "Honeytech Solutions"
+contact: "noc@honeytech.net"
+
+service: "ntp"
+hostname: "time.honeytech.byteworld"
+ipv4: "172.31.20.123"
+ipv6: "fd00:3120::123"
+
+status: active
+notes: "Stratum-2 NTP server"
