@@ -1,0 +1,7 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: "byteworld-registry"
+    static_configs:
+      - targets: ["registry-api:8000"]
