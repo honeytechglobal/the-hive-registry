@@ -1,0 +1,12 @@
+# DNS service provided by Honeytech Solutions
+asn: "65311"
+org: "Mwanga Keys"
+contact: "noc@mwangakeys.com"
+
+service: "dns"
+hostname: "ns1.mwangakeys.hive"
+ipv4: "172.31.1000.53"
+ipv6: "fd00:1000::53"
+
+status: active
+notes: "Anycast recursive DNS service"
