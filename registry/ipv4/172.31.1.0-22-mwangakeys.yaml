@@ -1,0 +1,10 @@
+# IPv4 allocation record for Honeytech Solutions
+asn: "65311"
+org: "Mwanga Keys"
+contact: "noc@mwangakeys.com"
+
+ipv4: "172.31.1.0/22"
+
+status: active
+location: "Nairobi, Kenya"
+notes: "Mwanga Keys network"
