@@ -1,0 +1,12 @@
+# IPv6 allocation record for ExampleNet
+asn: "65311"
+org: "BMTech"
+contact: "admin@mwangakeys.com"
+
+# Allocated IPv6 prefix
+ipv6: "fd00:1000::/32"
+
+# Optional metadata
+status: active
+location: "Nairobi, Kenya"
+notes: "Mwanga Keys primary IPv6"
